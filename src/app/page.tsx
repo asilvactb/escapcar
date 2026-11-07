@@ -100,7 +100,7 @@ export default function Home() {
         <div className="gut grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <p className="lbl rv mb-6 text-grey-2">05 — Oficina</p>
-            <h2 className="display rv text-[clamp(38px,4.6vw,76px)]">Tratamos do escape. E do resto.</h2>
+            <h2 className="display rv text-[clamp(38px,4.6vw,76px)]">Escapes primeiro. Serviços rápidos também.</h2>
             <Link href="/servicos" className="btn btn-blue rv mt-10">Todos os serviços →</Link>
           </div>
           <ul className="lg:col-span-7 lg:col-start-6">

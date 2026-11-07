@@ -56,7 +56,7 @@ export const SERVICES = [
   { n: "02", title: "Reconstrução de filtros de partículas", text: "Quando a limpeza não chega, reconstruímos o filtro. Substituição por filtro novo quando é a melhor opção." },
   { n: "03", title: "Escapes de pesados", text: "Reparação e fabrico de escapes para camiões e pesados, na oficina de Cabreiros." },
   { n: "04", title: "Escapes e catalisadores", text: "Diagnóstico, reparação e substituição do sistema de escape completo, do coletor à ponteira." },
-  { n: "05", title: "Pneus e serviços rápidos", text: "Pneus, mudanças de óleo e filtros, travões e outras intervenções de manutenção." },
+  { n: "05", title: "Pneus e serviços rápidos", text: "Pneus, mudanças de óleo e filtros e travões, em serviço rápido." },
   { n: "06", title: "Apoio à inspeção", text: "Preparação do carro para a inspeção, com analisador de gases disponível para os clientes." },
   { n: "07", title: "Fabrico próprio", text: "Escapes e silenciosos feitos por medida para clássicos, máquinas agrícolas e industriais." },
 ];

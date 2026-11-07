@@ -13,7 +13,7 @@ export default function Servicos() {
     <>
       <PageHead
         kicker="Serviços"
-        title="Especialistas em escapes. Prontos para o resto."
+        title="Especialistas em escapes. Com serviços rápidos."
         intro="Oficinas em Braga (Cabreiros) e Guimarães, com escapes, pneus, serviços rápidos e apoio à inspeção."
       />
       <section data-theme="light" className="py-20 md:py-28">
