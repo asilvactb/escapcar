@@ -1,0 +1,190 @@
+@import "tailwindcss";
+
+:root {
+  /* Escapcar brand book 2025 */
+  --blue: #2b01e1;
+  --blue-2: #2200b8;
+  --blue-hi: #5b3cff;
+  --ink: #151515;
+  --ink-2: #3a3a3c;
+  --grey: #a5a5a5;
+  --grey-2: #6e6e72;
+  --paper: #ffffff;
+  --paper-2: #f2f2f3;
+  --line: rgba(21, 21, 21, 0.12);
+  --wline: rgba(255, 255, 255, 0.16);
+  --expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --gut: clamp(16px, 4vw, 56px);
+}
+
+@theme inline {
+  --color-blue: var(--blue);
+  --color-blue-2: var(--blue-2);
+  --color-blue-hi: var(--blue-hi);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-grey: var(--grey);
+  --color-grey-2: var(--grey-2);
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --font-sans: var(--font-archivo), system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
+}
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body {
+  font-family: var(--font-sans);
+  background: var(--paper);
+  overflow-x: clip;
+}
+::selection {
+  background: var(--blue);
+  color: #fff;
+}
+
+@layer components {
+.gut {
+  padding-left: var(--gut);
+  padding-right: var(--gut);
+}
+
+/* Type */
+.display {
+  font-weight: 600;
+  font-stretch: 88%;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+}
+.lbl {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.tab {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Reveal */
+.rv {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 1s var(--expo), transform 1.2s var(--expo);
+  transition-delay: var(--d, 0ms);
+}
+.rv.in {
+  opacity: 1;
+  transform: none;
+}
+.ln {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+.ln > span {
+  display: block;
+  transform: translateY(110%);
+  animation: lnUp 1.2s var(--expo) forwards;
+  animation-delay: calc(var(--i, 0) * 90ms + 150ms);
+}
+@keyframes lnUp {
+  to { transform: none; }
+}
+
+/* Buttons */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 50px;
+  padding: 0 22px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 0.3s var(--ease), color 0.4s var(--expo);
+  white-space: nowrap;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateY(101%);
+  transition: transform 0.5s var(--expo);
+  z-index: -1;
+}
+.btn:hover::before {
+  transform: none;
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.btn-blue { background: var(--blue); color: #fff; }
+.btn-blue::before { background: var(--ink); }
+.btn-white { background: #fff; color: var(--blue); }
+.btn-white::before { background: var(--ink); }
+.btn-white:hover { color: #fff; }
+.btn-line { box-shadow: inset 0 0 0 1px currentColor; }
+.btn-line::before { background: currentColor; }
+.btn-line:hover { color: var(--blue); }
+.btn-line.on-ink:hover { color: var(--ink); }
+
+/* Underline link */
+.ulink {
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  transition: background-size 0.5s var(--expo);
+}
+.ulink:hover {
+  background-size: 100% 1px;
+}
+
+/* Brand pattern: the "K" mark outline repeated, as on the billboard */
+.pattern {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='190' viewBox='0 0 220 190'><path d='M20 20h70l-20 40H20zM20 75h65l25-55h70v40h-40l-17 35 17 35h40v40h-70l-25-55H20zM20 130h50l20 40H20z' fill='none' stroke='white' stroke-opacity='.09' stroke-width='1.2'/></svg>");
+  background-size: 220px 190px;
+}
+
+/* Image zoom on hover */
+.zoom img {
+  transition: transform 1.2s var(--expo);
+}
+.zoom:hover img {
+  transform: scale(1.04);
+}
+
+}
+
+@keyframes kenburns {
+  from { transform: scale(1.12); }
+  to { transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+  .rv { opacity: 1; transform: none; }
+  .ln > span { transform: none; }
+}
+
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
